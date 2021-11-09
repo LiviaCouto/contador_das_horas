@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do Dia!</title>
+
+    <style>
+        body {
+            background-color: rgb(70, 142, 236);
+            font: normal 15px Arial;
+        }
+
+        header {
+            color: white;
+            text-align: center;
+        }
+
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.336);
+        }
+
+        div {
+            text-align: center;
+            padding: 8px;
+
+        }
+
+        footer {
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+
+<body onload="carregar()">
+
+    <header>
+        <h1>Hora do Dia =)</h1>
+    </header>
+
+    <section>
+        <div id="msg"></div>
+        <div id="foto">
+            <img id="imagem" src="fotomanha.png" alt="Foto da manhã">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; LíviaCouto</p>
+    </footer>
+
+    <script>
+        function carregar() {
+            var msg = window.document.getElementById('msg')
+            var img = window.document.getElementById('imagem')
+            var data = new Date()
+            var hora = data.getHours()
+            var hora = 21 // TESTE PARA FORÇAR A HORA
+            msg.innerHTML = `<strong>Agora são ${hora} horas.</strong>`
+            if (hora >= 0 && hora < 12) {
+                //IMAGEM/TEXTO DE BOM DIA!
+                msg.innerHTML = 'Bom dia!'
+                img.src = 'fotomanha.png'
+                document.body.style.background = '#e2cd9f'
+            } else if (hora >= 12 && hora <= 18) {
+                //BOA TARDE!
+                img.src = 'fototarde.png'
+                document.body.style.background = '#b9846f'
+            } else {
+                //BOA NOITE!
+                img.src = 'fotonoite.png'
+                document.body.style.background = '#122e36'
+            }
+        }
+    </script>
+
+</body>
+</html>
